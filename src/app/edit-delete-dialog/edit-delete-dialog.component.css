@@ -1,0 +1,15 @@
+.header {
+  margin-top: 10px;
+}
+
+.buttons {
+  margin: 10px 0 5px 0;
+}
+
+.color-text {
+  color: #0066ba;
+}
+
+.submit-btn {
+  min-width: 88px;
+}

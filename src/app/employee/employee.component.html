@@ -1,0 +1,40 @@
+<p class="color-text"><strong>{{employee.firstName}} {{employee.lastName}}, {{employee.position}}</strong></p>
+<p>Employee ID: {{employee.id}} Direct Reports: {{totalReports}}</p>
+
+<hr>
+<nav class="navbar navbar-light mb-3">
+  <div class="bg-secondary text-white" fxFlex="100%" fxLayoutAlign="space-between center">
+    <span class="report-header">Reports:</span>
+    <button (click)="isMenuCollapsed = !isMenuCollapsed" mat-icon-button>
+      <mat-icon *ngIf="isMenuCollapsed">keyboard_arrow_down</mat-icon>
+      <mat-icon *ngIf="!isMenuCollapsed">keyboard_arrow_up</mat-icon>
+    </button>
+  </div>
+
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse bg-light">
+    <ng-container *ngIf="reports.length > 0 else noReports">
+      <mat-list *ngFor="let report of reports" class="navbar-nav">
+        <mat-list-item class="nav-item">
+          <div fxFlex="100%" fxLayoutAlign="space-between center">
+            <div>
+              {{report.firstName}} {{report.lastName}}, {{report.position}}
+            </div>
+            <div>
+              <button (click)="openEditDialog(report)" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button (click)="openDeleteDialog(report)" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </ng-container>
+    <ng-template #noReports>
+      <mat-list>
+        <mat-list-item>This employee has no reports.</mat-list-item>
+      </mat-list>
+    </ng-template>
+  </div>
+</nav>

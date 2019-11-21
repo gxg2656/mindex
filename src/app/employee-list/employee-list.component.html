@@ -1,0 +1,6 @@
+<mat-card *ngFor="let emp of employees" style="margin:2em;">
+  <mat-card-content>
+    <app-employee [employee]="emp" (editEmployee)="updateEmployee($event)" (deleteEmployee)="deleteEmployee($event)"></app-employee>
+  </mat-card-content>
+</mat-card>
+

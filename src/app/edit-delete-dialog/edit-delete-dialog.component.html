@@ -1,0 +1,81 @@
+<mat-dialog-content>
+  <ng-container *ngIf="edit">
+    <p class="color-text" mat-dialog-title>UPDATE COMPENSATION</p>
+
+    <form #updateEmployee="ngForm">
+      <div fxLayout="column">
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>First Name</mat-label>
+          <input
+            #firstName="ngModel"
+            [(ngModel)]="selectedEmployee.firstName"
+            [disabled]
+            matInput
+            name="firstName"
+            type="text"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Last Name</mat-label>
+          <input
+            #lastName="ngModel"
+            [(ngModel)]="selectedEmployee.lastName"
+            [disabled]
+            matInput
+            name="lastName"
+            type="text"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Title</mat-label>
+          <input
+            #position="ngModel"
+            [(ngModel)]="selectedEmployee.position"
+            [disabled]
+            matInput
+            name="position"
+            type="text"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="error-field" floatLabel="always">
+          <mat-label>Compensation</mat-label>
+          <input
+            #compensation="ngModel"
+            [(ngModel)]="selectedEmployee.compensation"
+            [textMask]="{ mask: masks.currency }"
+            matInput
+            name="compensation"
+            required
+          />
+          <mat-error *ngIf="compensation.errors?.required && (compensation.dirty || compensation.touched)"><p
+            class="text-danger"><i>Compensation amount is required</i></p></mat-error>
+          <mat-hint><p class="text-info"><i>Compensation amount</i></p></mat-hint>
+        </mat-form-field>
+
+        <div class="buttons" fxLayout="row" fxLayoutAlign="space-around start">
+          <button (click)="saveCompensation(selectedEmployee)" [disabled]="!updateEmployee.valid" class="btn btn-secondary submit-btn"
+                  type="submit">SAVE
+          </button>
+          <button (click)="closeDialog()" class="btn btn-secondary" type="button">CANCEL</button>
+        </div>
+
+      </div>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="delete">
+    <p class="color-text" mat-dialog-title>DELETE EMPLOYEE</p>
+
+    <p>Permanently delete employee {{selectedEmployee.firstName}} {{selectedEmployee.lastName}}?</p>
+
+    <p>This action cannot be undone.</p>
+
+    <div class="buttons" fxLayout="row" fxLayoutAlign="space-around start">
+      <button (click)="deleteEmployee(selectedEmployee)" btn-primary mat-raised-button type="submit">SAVE</button>
+      <button (click)="closeDialog()" mat-raised-button>CANCEL</button>
+    </div>
+  </ng-container>
+</mat-dialog-content>
