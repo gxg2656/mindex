@@ -9,7 +9,7 @@
           <input
             #firstName="ngModel"
             [(ngModel)]="selectedEmployee.firstName"
-            [disabled]
+            disabled
             matInput
             name="firstName"
             type="text"
@@ -21,7 +21,7 @@
           <input
             #lastName="ngModel"
             [(ngModel)]="selectedEmployee.lastName"
-            [disabled]
+            disabled
             matInput
             name="lastName"
             type="text"
@@ -33,7 +33,7 @@
           <input
             #position="ngModel"
             [(ngModel)]="selectedEmployee.position"
-            [disabled]
+            disabled
             matInput
             name="position"
             type="text"
@@ -74,7 +74,7 @@
     <p>This action cannot be undone.</p>
 
     <div class="buttons" fxLayout="row" fxLayoutAlign="space-around start">
-      <button (click)="deleteEmployee(selectedEmployee)" btn-primary mat-raised-button type="submit">SAVE</button>
+      <button (click)="deleteEmployee(selectedEmployee)" btn-primary mat-raised-button type="submit">OK</button>
       <button (click)="closeDialog()" mat-raised-button>CANCEL</button>
     </div>
   </ng-container>
