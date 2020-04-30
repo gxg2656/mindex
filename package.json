@@ -28,7 +28,7 @@
     "angular2-text-mask": "^9.0.0",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "rxjs": "6.0.0",
     "text-mask-addons": "^3.8.0",
     "zone.js": "^0.8.26"
